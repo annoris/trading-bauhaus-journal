@@ -1,0 +1,31 @@
+<svg width="1800" height="520" viewBox="0 0 1800 520" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trading Bauhaus — a private trading journal">
+  <defs>
+    <linearGradient id="accent" x1="1090" y1="90" x2="1660" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#37D990" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#37D990" stop-opacity="0.08"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="matrix(0 400 -700 0 1470 200)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#123D2B" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#0A0C0B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1800" height="520" rx="28" fill="#0A0C0B"/>
+  <rect width="1800" height="520" rx="28" fill="url(#glow)"/>
+  <path d="M0 420H1800M0 340H1800M0 260H1800M0 180H1800M0 100H1800M200 0V520M400 0V520M600 0V520M800 0V520M1000 0V520M1200 0V520M1400 0V520M1600 0V520" stroke="#19201C" stroke-opacity="0.55"/>
+  <rect x="88" y="78" width="12" height="34" rx="6" fill="#37D990"/>
+  <text x="122" y="105" fill="#D7E2DC" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="5">TRADING BAUHAUS</text>
+  <text x="88" y="236" fill="#F2F5F3" font-family="Inter, Arial, sans-serif" font-size="66" font-weight="650" letter-spacing="-2">Trade with intention.</text>
+  <text x="88" y="314" fill="#F2F5F3" font-family="Inter, Arial, sans-serif" font-size="66" font-weight="650" letter-spacing="-2">Review with evidence.</text>
+  <text x="92" y="379" fill="#9AA8A0" font-family="Inter, Arial, sans-serif" font-size="25">Your trades, notes and AI-assisted review in one private journal.</text>
+  <path d="M1000 408L1106 350L1190 368L1286 261L1360 286L1470 190L1540 222L1680 114" stroke="url(#accent)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="1000" cy="408" r="8" fill="#37D990"/>
+  <circle cx="1106" cy="350" r="8" fill="#37D990"/>
+  <circle cx="1190" cy="368" r="8" fill="#37D990"/>
+  <circle cx="1286" cy="261" r="8" fill="#37D990"/>
+  <circle cx="1360" cy="286" r="8" fill="#37D990"/>
+  <circle cx="1470" cy="190" r="8" fill="#37D990"/>
+  <circle cx="1540" cy="222" r="8" fill="#37D990"/>
+  <circle cx="1680" cy="114" r="8" fill="#37D990"/>
+  <rect x="88" y="454" width="1624" height="1" fill="#252D28"/>
+  <text x="92" y="486" fill="#77857C" font-family="Inter, Arial, sans-serif" font-size="16" letter-spacing="2">PRIVATE WORKSPACES · INVITE ONLY · FICTIONAL READ-ONLY DEMO</text>
+</svg>

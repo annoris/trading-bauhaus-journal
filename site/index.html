@@ -1,0 +1,1664 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trading Bauhaus — Trade Journal Dashboard</title>
+    <meta
+      name="description"
+      content="Dark-first Bauhaus trading journal dashboard with Edge Score v2 analytics, candlestick replay, P&L calendar, reports, daily journal, playbooks, and prop firm cash ledger."
+    />
+    <meta name="theme-color" content="#090b0b" />
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <link rel="stylesheet" href="assets/css/tokens.css?v=1.3.0" />
+    <link rel="stylesheet" href="assets/css/accessibility.css?v=1.3.0" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=1.3.0" />
+    <link rel="stylesheet" href="assets/css/workspace.css?v=1.3.0" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="app-shell">
+      <!-- MOBILE HEADER (< 1024px) -->
+      <header class="mobile-header">
+        <button
+          type="button"
+          class="icon-btn mobile-menu-trigger"
+          id="mobile-nav-btn"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          aria-label="Open navigation menu"
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
+        </button>
+
+        <a
+          href="#view=dashboard"
+          class="brand-wordmark mobile-brand"
+          id="mobile-brand-link"
+          aria-label="Trading Bauhaus dashboard"
+        >
+          <span>TRADING</span>
+          <strong>BAUHAUS<span class="brand-dot">•</span></strong>
+        </a>
+
+        <div class="mobile-header-actions">
+          <button
+            type="button"
+            class="cta-btn header-license-btn"
+            id="mobile-license-popup-btn"
+            aria-haspopup="dialog"
+            aria-controls="license-popup"
+          >
+            Buy License
+          </button>
+          <button
+            type="button"
+            class="icon-btn"
+            id="mobile-header-privacy-toggle"
+            aria-pressed="false"
+            aria-label="Toggle privacy mask"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            class="icon-btn"
+            id="mobile-header-theme-toggle"
+            aria-pressed="false"
+            aria-label="Switch color theme"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+              />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- MOBILE NAVIGATION DRAWER -->
+      <aside
+        class="mobile-drawer"
+        id="mobile-nav"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobile navigation"
+        hidden
+      >
+        <div class="mobile-drawer-panel">
+          <div class="mobile-drawer-head">
+            <span class="brand-wordmark">
+              <span>TRADING</span>
+              <strong>BAUHAUS<span class="brand-dot">•</span></strong>
+            </span>
+            <button
+              type="button"
+              class="icon-btn"
+              id="mobile-nav-close"
+              aria-label="Close navigation menu"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M18 6 6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          <nav class="mobile-drawer-links" aria-label="Workspace views">
+            <a href="#view=dashboard" data-view-target="dashboard" aria-current="page">Dashboard</a>
+            <a href="#view=calendar" data-view-target="calendar">Calendar</a>
+            <a href="#view=journal" data-view-target="journal">Daily journal</a>
+            <a href="#view=trades" data-view-target="trades">Trades</a>
+            <a href="#view=reports" data-view-target="reports">Reports</a>
+            <a href="#view=prop-firms" data-view-target="prop-firms">Prop firms</a>
+            <a href="#view=notebook" data-view-target="notebook">Notebook</a>
+            <a href="#view=playbooks" data-view-target="playbooks">Playbooks</a>
+            <a href="#view=progress" data-view-target="progress">Progress</a>
+            <a href="#view=missed" data-view-target="missed">Missed trades</a>
+            <div class="sidebar-divider" aria-hidden="true"></div>
+            <a href="#view=accounts" data-view-target="accounts">Accounts</a>
+            <a href="#view=settings" data-view-target="settings">Settings</a>
+          </nav>
+
+          <div class="mobile-drawer-controls">
+            <button type="button" class="icon-btn" id="mobile-privacy-toggle" aria-pressed="false">
+              Toggle Privacy Mask ($••••)
+            </button>
+            <button type="button" class="icon-btn" id="mobile-theme-toggle" aria-pressed="false">
+              Switch Theme (Dark / Light)
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- FULL-HEIGHT LEFT DESKTOP SIDEBAR (matching apps/web shell.tsx) -->
+      <aside class="app-sidebar" aria-label="Journal navigation">
+        <div class="app-sidebar-head">
+          <a
+            href="#view=dashboard"
+            class="brand-wordmark"
+            id="brand-home-link"
+            aria-label="Trading Bauhaus dashboard"
+          >
+            <span>TRADING</span>
+            <strong>BAUHAUS<span class="brand-dot">•</span></strong>
+          </a>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Primary workspace sections">
+          <button
+            type="button"
+            class="sidebar-btn"
+            data-view-target="dashboard"
+            aria-current="page"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect width="7" height="9" x="3" y="3" rx="1" />
+              <rect width="7" height="5" x="14" y="3" rx="1" />
+              <rect width="7" height="9" x="14" y="12" rx="1" />
+              <rect width="7" height="5" x="3" y="16" rx="1" />
+            </svg>
+            <span>Dashboard</span>
+          </button>
+
+          <button type="button" class="sidebar-btn" data-view-target="calendar">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect width="18" height="18" x="3" y="4" rx="2" />
+              <path d="M16 2v4M8 2v4M3 10h18" />
+            </svg>
+            <span>Calendar</span>
+          </button>
+
+          <button type="button" class="sidebar-btn" data-view-target="journal">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4" />
+              <path d="M2 6h4M2 10h4M2 14h4M2 18h4" />
+              <path
+                d="M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"
+              />
+            </svg>
+            <span>Daily journal</span>
+          </button>
+
+          <button type="button" class="sidebar-btn" data-view-target="trades">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M9 5v4M9 17v4M17 3v2M17 13v3M3 3v18h18" />
+              <rect width="4" height="8" x="7" y="9" rx="1" />
+              <rect width="4" height="8" x="15" y="5" rx="1" />
+            </svg>
+            <span>Trades</span>
+          </button>
+
+          <button type="button" class="sidebar-btn" data-view-target="reports">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M3 3v18h18" />
+              <path d="M18 17V9M13 17V5M8 17v-3" />
+            </svg>
+            <span>Reports</span>
+          </button>
+
+          <button type="button" class="sidebar-btn" data-view-target="prop-firms">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="3" x2="21" y1="22" y2="22" />
+              <line x1="6" x2="6" y1="18" y2="11" />
+              <line x1="10" x2="10" y1="18" y2="11" />
+              <line x1="14" x2="14" y1="18" y2="11" />
+              <line x1="18" x2="18" y1="18" y2="11" />
+              <polygon points="12 2 20 7 4 7" />
+            </svg>
+            <span>Prop firms</span>
+          </button>
+
+          <button type="button" class="sidebar-btn" data-view-target="notebook">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M2 6h4M2 10h4M2 14h4M2 18h4" />
+              <rect width="16" height="20" x="4" y="2" rx="2" />
+              <path d="M9.5 8h5M9.5 12H16M9.5 16H14" />
+            </svg>
+            <span>Notebook</span>
+          </button>
+
+          <button type="button" class="sidebar-btn" data-view-target="playbooks">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+            </svg>
+            <span>Playbooks</span>
+          </button>
+
+          <button type="button" class="sidebar-btn" data-view-target="progress">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <circle cx="12" cy="12" r="6" />
+              <circle cx="12" cy="12" r="2" />
+            </svg>
+            <span>Progress</span>
+          </button>
+
+          <button type="button" class="sidebar-btn" data-view-target="missed">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2Z" />
+              <line x1="12" x2="12" y1="7" y2="13" />
+              <line x1="15" x2="9" y1="10" y2="10" />
+            </svg>
+            <span>Missed trades</span>
+          </button>
+
+          <div class="sidebar-divider" aria-hidden="true"></div>
+
+          <button type="button" class="sidebar-btn" data-view-target="accounts">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"
+              />
+              <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" />
+            </svg>
+            <span>Accounts</span>
+          </button>
+
+          <button type="button" class="sidebar-btn" data-view-target="settings">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"
+              />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+            <span>Settings</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <button
+            type="button"
+            class="sidebar-license-pill"
+            id="sidebar-license-btn"
+            aria-haspopup="dialog"
+            aria-controls="license-popup"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+              <path d="m9 12 2 2 4-4" />
+            </svg>
+            <span>Solana License</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- RIGHT MAIN WORKSPACE COLUMN -->
+      <div class="app-main-col">
+        <!-- TOP WORKSPACE BAR (matching localhost FilterBar) -->
+        <header class="workspace-topbar" id="site-header">
+          <div class="topbar-left">
+            <h1 class="topbar-title" id="topbar-view-title">Dashboard</h1>
+            <label class="sr-only" for="topbar-symbol-select">Filter by account or symbol</label>
+            <select id="topbar-symbol-select" class="topbar-select">
+              <option value="ALL">All accounts</option>
+              <option value="NQ">NQ Futures</option>
+              <option value="MNQ">MNQ Micro</option>
+            </select>
+          </div>
+
+          <div class="topbar-right">
+            <div
+              class="segmented-pill"
+              id="dash-range-filters"
+              role="group"
+              aria-label="Timeframe filter"
+            >
+              <button type="button" class="seg-btn" data-range="7d" aria-pressed="false">7D</button>
+              <button type="button" class="seg-btn" data-range="30d" aria-pressed="false">
+                30D
+              </button>
+              <button type="button" class="seg-btn" data-range="90d" aria-pressed="false">
+                90D
+              </button>
+              <button type="button" class="seg-btn" data-range="ytd" aria-pressed="false">
+                YTD
+              </button>
+              <button type="button" class="seg-btn" data-range="all" aria-pressed="true">
+                All
+              </button>
+            </div>
+
+            <button
+              type="button"
+              class="icon-btn topbar-btn"
+              id="reset-filters-btn"
+              title="Reset filters"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+              </svg>
+              <span>Filters</span>
+            </button>
+
+            <button type="button" class="cta-btn topbar-add-btn" id="add-trade-btn">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                aria-hidden="true"
+              >
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+              <span>Add trade</span>
+            </button>
+
+            <button
+              type="button"
+              class="icon-btn topbar-btn"
+              id="privacy-toggle"
+              aria-pressed="false"
+              aria-label="Toggle dollar masking privacy mode"
+              title="Mask dollar amounts"
+            >
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <span id="privacy-toggle-label">Privacy Off</span>
+            </button>
+
+            <button
+              type="button"
+              class="icon-btn topbar-icon-only"
+              id="theme-toggle"
+              aria-pressed="false"
+              aria-label="Switch color theme"
+              title="Switch dark or light theme"
+            >
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <path
+                  d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+                />
+              </svg>
+              <span class="sr-only" id="theme-toggle-label">Light</span>
+            </button>
+
+            <button
+              type="button"
+              class="icon-btn topbar-license-btn"
+              id="open-license-popup-btn"
+              aria-haspopup="dialog"
+              aria-controls="license-popup"
+            >
+              Buy License
+            </button>
+          </div>
+        </header>
+
+        <!-- INLINE STATUS TOAST (for + Add trade in static preview) -->
+        <div class="inline-toast" id="inline-toast" role="status" aria-live="polite" hidden></div>
+
+        <!-- MAIN WORKSPACE VIEWPORT -->
+        <main id="main-content" class="app-main">
+          <div id="workspace-viewport">
+            <!-- VIEW 1: DASHBOARD (1-to-1 match of localhost apps/web/src/app/dashboard/page.tsx) -->
+            <section
+              class="workspace-view"
+              id="view-dashboard"
+              data-view="dashboard"
+              aria-label="Dashboard overview"
+            >
+              <!-- EMERALD HERO CARD -->
+              <div class="dashboard-hero">
+                <div class="dashboard-hero-copy">
+                  <span class="dashboard-hero-kicker">YOUR TRADING WORKSPACE</span>
+                  <h2>Make your next session count.</h2>
+                  <p>
+                    See your results clearly. Review the decisions behind them. Build a process you
+                    can repeat.
+                  </p>
+                </div>
+                <div class="dashboard-hero-actions">
+                  <button
+                    type="button"
+                    class="cta-btn hero-discipline-btn"
+                    data-view-target="playbooks"
+                  >
+                    <span>Review your discipline</span>
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 17 17 7M7 7h10v10" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- PERFORMANCE OVERVIEW CONTEXT ROW -->
+              <div class="dashboard-context-row">
+                <p>
+                  <strong>Performance overview</strong> ·
+                  <span id="dash-context-meta" class="tabular-nums"
+                    >51 closed trades · 36 trading days · America/New_York</span
+                  >
+                </p>
+                <span>Historical journal data</span>
+              </div>
+
+              <!-- COLLAPSIBLE AI JOURNAL ANALYST BAR -->
+              <details class="dashboard-ai-panel" id="ai-analyst-panel" open>
+                <summary class="dashboard-ai-summary">
+                  <span class="ai-summary-brand">✦ AI Journal Analyst</span>
+                  <span class="ai-summary-sub">Review strategies, mistakes &amp; risk</span>
+                  <span class="ai-summary-plus" aria-hidden="true">+</span>
+                </summary>
+                <div class="dashboard-ai-body">
+                  <div class="ai-briefing-grid" id="ai-briefing-grid"></div>
+                  <div
+                    class="ai-prompt-bar"
+                    id="ai-prompt-chips"
+                    role="group"
+                    aria-label="Analyst prompt queries"
+                  >
+                    <button
+                      type="button"
+                      class="ai-prompt-chip"
+                      data-ai-prompt="best-setup"
+                      aria-pressed="true"
+                    >
+                      Best setup edge?
+                    </button>
+                    <button
+                      type="button"
+                      class="ai-prompt-chip"
+                      data-ai-prompt="mistake-cost"
+                      aria-pressed="false"
+                    >
+                      Cost of mistakes?
+                    </button>
+                    <button
+                      type="button"
+                      class="ai-prompt-chip"
+                      data-ai-prompt="rule-compliance"
+                      aria-pressed="false"
+                    >
+                      Rule compliance?
+                    </button>
+                  </div>
+                  <div class="ai-answer-box" id="ai-prompt-answer" aria-live="polite"></div>
+                </div>
+              </details>
+
+              <!-- ROW 1: PRIMARY 5 KPI CARDS (Net P&L, Trade Win %, Profit Factor, Avg Win/Loss, Edge Score) -->
+              <div class="kpi-grid-5" id="dash-kpi-grid"></div>
+
+              <!-- ROW 2: EQUITY CURVE & RECENT TRADES -->
+              <div class="dash-split">
+                <div class="panel-card">
+                  <div class="panel-head">
+                    <h3>Equity curve</h3>
+                    <span class="panel-readout tabular-nums" id="dash-equity-readout"
+                      >Hover a point to inspect trade</span
+                    >
+                  </div>
+                  <div id="dash-equity-chart"></div>
+                </div>
+
+                <div class="panel-card">
+                  <div class="panel-head">
+                    <h3>Recent trades</h3>
+                    <span class="panel-readout">Click row for candle replay</span>
+                  </div>
+                  <div class="recent-list" id="dash-recent-trades"></div>
+                </div>
+              </div>
+
+              <!-- ROW 3: 4 COMPACT SECONDARY KPI CARDS -->
+              <div class="kpi-grid-4" id="dash-secondary-kpis"></div>
+
+              <!-- ROW 4: STRATEGY PERFORMANCE & NET DAILY P&L -->
+              <div class="dash-split dash-split-even">
+                <div class="panel-card">
+                  <div class="panel-head">
+                    <h3>Strategy performance</h3>
+                    <span class="panel-readout">Net P&amp;L by setup</span>
+                  </div>
+                  <div class="strategy-bars-list" id="dash-strategy-bars"></div>
+                </div>
+
+                <div class="panel-card">
+                  <div class="panel-head">
+                    <h3>Net daily P&amp;L</h3>
+                    <span class="panel-readout tabular-nums" id="dash-daily-readout"
+                      >Session totals</span
+                    >
+                  </div>
+                  <div id="dash-daily-bars"></div>
+                </div>
+              </div>
+            </section>
+
+            <!-- VIEW 2: CALENDAR -->
+            <section
+              class="workspace-view"
+              id="view-calendar"
+              data-view="calendar"
+              aria-label="P&L Calendar"
+              hidden
+            >
+              <div class="calendar-header">
+                <div
+                  class="filter-group"
+                  id="cal-month-tabs"
+                  role="group"
+                  aria-label="Select month"
+                >
+                  <button
+                    type="button"
+                    class="filter-chip"
+                    data-month="2026-10"
+                    aria-pressed="false"
+                  >
+                    October 2026
+                  </button>
+                  <button
+                    type="button"
+                    class="filter-chip"
+                    data-month="2026-11"
+                    aria-pressed="true"
+                  >
+                    November 2026
+                  </button>
+                </div>
+                <span class="panel-readout"
+                  >Click any shaded session to inspect trades &amp; journal notes</span
+                >
+              </div>
+              <div class="calendar-insights" id="cal-insights-strip"></div>
+              <div class="calendar-grid" id="cal-grid"></div>
+              <div class="day-inspector" id="cal-day-inspector" aria-live="polite"></div>
+            </section>
+
+            <!-- VIEW 3: DAILY JOURNAL -->
+            <section
+              class="workspace-view"
+              id="view-journal"
+              data-view="journal"
+              aria-label="Daily journal"
+              hidden
+            >
+              <div class="journal-layout">
+                <div
+                  class="session-list"
+                  id="journal-session-list"
+                  aria-label="Trading sessions"
+                ></div>
+                <div class="panel-card" id="journal-session-detail" aria-live="polite"></div>
+              </div>
+            </section>
+
+            <!-- VIEW 4: TRADES EXPLORER -->
+            <section
+              class="workspace-view"
+              id="view-trades"
+              data-view="trades"
+              aria-label="Trades explorer"
+              hidden
+            >
+              <div class="trades-toolbar">
+                <label class="sr-only" for="trades-search">Search trades</label>
+                <input
+                  type="search"
+                  id="trades-search"
+                  class="input-control"
+                  placeholder="Search symbol, setup, mistake tag, or ID..."
+                />
+
+                <label class="sr-only" for="trades-setup-filter">Filter by setup</label>
+                <select id="trades-setup-filter" class="select-control">
+                  <option value="ALL">All Setups</option>
+                  <option value="Opening range pullback">Opening range pullback</option>
+                  <option value="VWAP reclaim/reject">VWAP reclaim/reject</option>
+                  <option value="Breakout retest">Breakout retest</option>
+                </select>
+
+                <div
+                  class="filter-group"
+                  id="trades-outcome-filters"
+                  role="group"
+                  aria-label="Outcome filter"
+                >
+                  <button type="button" class="filter-chip" data-outcome="all" aria-pressed="true">
+                    All
+                  </button>
+                  <button type="button" class="filter-chip" data-outcome="win" aria-pressed="false">
+                    Wins
+                  </button>
+                  <button
+                    type="button"
+                    class="filter-chip"
+                    data-outcome="loss"
+                    aria-pressed="false"
+                  >
+                    Losses
+                  </button>
+                </div>
+              </div>
+
+              <div class="summary-strip" id="trades-summary-strip"></div>
+
+              <div class="table-scroll">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>
+                        <button
+                          type="button"
+                          class="sort-btn"
+                          data-sort="date"
+                          aria-sort="descending"
+                        >
+                          Date
+                        </button>
+                      </th>
+                      <th>
+                        <button type="button" class="sort-btn" data-sort="symbol">Symbol</button>
+                      </th>
+                      <th>Side</th>
+                      <th>Setup</th>
+                      <th>Tags</th>
+                      <th>
+                        <button type="button" class="sort-btn" data-sort="duration">
+                          Duration
+                        </button>
+                      </th>
+                      <th>
+                        <button type="button" class="sort-btn" data-sort="realizedR">
+                          Result (R)
+                        </button>
+                      </th>
+                      <th>
+                        <button type="button" class="sort-btn" data-sort="netPnl">
+                          Net P&amp;L
+                        </button>
+                      </th>
+                      <th>Replay</th>
+                    </tr>
+                  </thead>
+                  <tbody id="trades-table-body"></tbody>
+                </table>
+              </div>
+            </section>
+
+            <!-- VIEW 5: REPORTS & ANALYTICS -->
+            <section
+              class="workspace-view"
+              id="view-reports"
+              data-view="reports"
+              aria-label="Reports and analytics"
+              hidden
+            >
+              <div
+                class="subtab-bar"
+                id="reports-subtabs"
+                role="tablist"
+                aria-label="Report sections"
+              >
+                <button
+                  type="button"
+                  class="subtab-btn"
+                  role="tab"
+                  data-report-tab="overview"
+                  aria-selected="true"
+                >
+                  Overview
+                </button>
+                <button
+                  type="button"
+                  class="subtab-btn"
+                  role="tab"
+                  data-report-tab="setups"
+                  aria-selected="false"
+                >
+                  Setups &amp; Mistakes
+                </button>
+                <button
+                  type="button"
+                  class="subtab-btn"
+                  role="tab"
+                  data-report-tab="explorer"
+                  aria-selected="false"
+                >
+                  Trade Explorer
+                </button>
+              </div>
+
+              <div id="reports-panel-overview" role="tabpanel">
+                <div class="reports-kpi-7" id="reports-kpi-grid"></div>
+                <div class="reports-charts-stack">
+                  <div class="panel-card">
+                    <div class="panel-head">
+                      <h3>Cumulative Net P&amp;L</h3>
+                      <span class="panel-readout tabular-nums" id="reports-eq-readout"
+                        >Closed-trade cumulative curve</span
+                      >
+                    </div>
+                    <div id="reports-equity-chart"></div>
+                  </div>
+                  <div class="panel-card">
+                    <div class="panel-head">
+                      <h3>Daily Net P&amp;L</h3>
+                      <span class="panel-readout tabular-nums" id="reports-bar-readout"
+                        >Zero-anchored session totals</span
+                      >
+                    </div>
+                    <div id="reports-daily-bars"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="reports-panel-setups" role="tabpanel" hidden>
+                <div class="panel-card">
+                  <div class="panel-head">
+                    <h3>Setup Performance Breakdown</h3>
+                    <span class="panel-readout">Filtered NQ / MNQ strategies</span>
+                  </div>
+                  <div class="table-scroll">
+                    <table class="data-table">
+                      <thead>
+                        <tr>
+                          <th>Setup</th>
+                          <th>Trades</th>
+                          <th>Win %</th>
+                          <th>Profit Factor</th>
+                          <th>Avg R</th>
+                          <th>Net P&amp;L</th>
+                        </tr>
+                      </thead>
+                      <tbody id="reports-setup-table"></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="mistake-grid" id="reports-mistake-cards"></div>
+              </div>
+
+              <div id="reports-panel-explorer" role="tabpanel" hidden>
+                <div class="panel-card">
+                  <div class="panel-head">
+                    <div>
+                      <h3>Holding Duration vs. Outcome Scatter</h3>
+                      <span class="panel-readout" id="reports-scatter-readout"
+                        >Hover or click any marker to open candle replay</span
+                      >
+                    </div>
+                    <div
+                      class="filter-group"
+                      id="scatter-metric-toggle"
+                      role="group"
+                      aria-label="Scatter Y-axis metric"
+                    >
+                      <button
+                        type="button"
+                        class="filter-chip"
+                        data-scatter-metric="pnl"
+                        aria-pressed="true"
+                      >
+                        Net P&amp;L ($)
+                      </button>
+                      <button
+                        type="button"
+                        class="filter-chip"
+                        data-scatter-metric="r"
+                        aria-pressed="false"
+                      >
+                        Realized R
+                      </button>
+                    </div>
+                  </div>
+                  <div id="reports-scatter-chart"></div>
+                  <div class="scatter-legend">
+                    <span>Circle = Winning trade</span>
+                    <span>Diamond = Losing trade</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- VIEW 6: PROP FIRMS -->
+            <section
+              class="workspace-view"
+              id="view-prop-firms"
+              data-view="prop-firms"
+              aria-label="Prop firms cash ROI ledger"
+              hidden
+            >
+              <div class="prop-roi-grid" id="prop-roi-strip"></div>
+              <div class="prop-accounts-grid" id="prop-accounts-grid"></div>
+
+              <div class="panel-card">
+                <div class="panel-head">
+                  <h3>Cash Ledger</h3>
+                  <div
+                    class="filter-group"
+                    id="prop-filter-tabs"
+                    role="group"
+                    aria-label="Filter prop ledger entries"
+                  >
+                    <button
+                      type="button"
+                      class="filter-chip"
+                      data-prop-filter="all"
+                      aria-pressed="true"
+                    >
+                      All
+                    </button>
+                    <button
+                      type="button"
+                      class="filter-chip"
+                      data-prop-filter="expense"
+                      aria-pressed="false"
+                    >
+                      Expenses
+                    </button>
+                    <button
+                      type="button"
+                      class="filter-chip"
+                      data-prop-filter="refund"
+                      aria-pressed="false"
+                    >
+                      Refunds
+                    </button>
+                    <button
+                      type="button"
+                      class="filter-chip"
+                      data-prop-filter="payout"
+                      aria-pressed="false"
+                    >
+                      Payouts
+                    </button>
+                  </div>
+                </div>
+                <div class="table-scroll">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Firm / Phase</th>
+                        <th>Type</th>
+                        <th>Category</th>
+                        <th>Reference</th>
+                        <th>Status</th>
+                        <th>Cash Impact</th>
+                      </tr>
+                    </thead>
+                    <tbody id="prop-ledger-body"></tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- VIEW 7: NOTEBOOK -->
+            <section
+              class="workspace-view"
+              id="view-notebook"
+              data-view="notebook"
+              aria-label="Trading notebook"
+              hidden
+            >
+              <div class="panel-card">
+                <div class="panel-head">
+                  <h3>Structured Trading Notebook</h3>
+                  <span class="panel-readout"
+                    >Playbook notes, market regime &amp; prop firm references</span
+                  >
+                </div>
+                <div class="notebook-grid" id="notebook-notes-grid"></div>
+              </div>
+            </section>
+
+            <!-- VIEW 8: PLAYBOOKS -->
+            <section
+              class="workspace-view"
+              id="view-playbooks"
+              data-view="playbooks"
+              aria-label="Trading playbooks"
+              hidden
+            >
+              <div class="panel-card" style="margin-bottom: 16px">
+                <div class="panel-head">
+                  <h3>NQ / MNQ Discipline Playbook</h3>
+                  <span class="panel-readout">Live rule adherence across filtered trades</span>
+                </div>
+                <div class="playbook-grid" id="playbook-rules-list"></div>
+              </div>
+
+              <div class="panel-card">
+                <div class="panel-head">
+                  <h3>Setup Edge Comparison</h3>
+                  <span class="panel-readout">Expectancy &amp; win rate per playbook</span>
+                </div>
+                <div class="strategy-bars-list" id="playbooks-setup-bars"></div>
+              </div>
+            </section>
+
+            <!-- VIEW 9: PROGRESS -->
+            <section
+              class="workspace-view"
+              id="view-progress"
+              data-view="progress"
+              aria-label="Discipline and progress tracker"
+              hidden
+            >
+              <div class="kpi-grid-4" id="progress-kpi-grid"></div>
+              <div class="panel-card">
+                <div class="panel-head">
+                  <h3>Process &amp; Rule Adherence Milestones</h3>
+                  <span class="panel-readout">Computed from filtered session history</span>
+                </div>
+                <div class="playbook-grid" id="progress-milestones"></div>
+              </div>
+            </section>
+
+            <!-- VIEW 10: MISSED TRADES -->
+            <section
+              class="workspace-view"
+              id="view-missed"
+              data-view="missed"
+              aria-label="Missed trades log"
+              hidden
+            >
+              <div class="panel-card">
+                <div class="panel-head">
+                  <h3>Missed Trades Log</h3>
+                  <span class="panel-readout"
+                    >Kept strictly separate from realized P&amp;L metrics</span
+                  >
+                </div>
+                <div class="table-scroll">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>Date / Time</th>
+                        <th>Symbol</th>
+                        <th>Direction</th>
+                        <th>Setup</th>
+                        <th>Reason Skipped</th>
+                        <th>Est. Move (R)</th>
+                      </tr>
+                    </thead>
+                    <tbody id="missed-trades-body"></tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- VIEW 11: ACCOUNTS -->
+            <section
+              class="workspace-view"
+              id="view-accounts"
+              data-view="accounts"
+              aria-label="Trading accounts"
+              hidden
+            >
+              <div class="license-grid" id="accounts-cards-grid"></div>
+            </section>
+
+            <!-- VIEW 12: SETTINGS (includes Solana Commercial License & GitHub Policies) -->
+            <section
+              class="workspace-view"
+              id="view-settings"
+              data-view="settings"
+              aria-label="Workspace settings, commercial license, and GitHub policies"
+              hidden
+            >
+              <div class="license-grid">
+                <article class="license-card">
+                  <div class="panel-head">
+                    <h3>Commercial &amp; Contribution License</h3>
+                    <span class="badge badge-neutral">Commercial-1.0</span>
+                  </div>
+                  <p>
+                    Trading Bauhaus is licensed under
+                    <code>LicenseRef-TradingBauhaus-Commercial-1.0</code>. All intellectual
+                    property, UI architecture, analytics engines, and source code belong exclusively
+                    to Trading Bauhaus (Annoris).
+                  </p>
+                  <ul class="license-list">
+                    <li>
+                      <strong>Individual Self-Hosted Use:</strong> Unlocked via a verified Solana
+                      (SOL or USDC-SPL) contribution to the official project wallet. Retain the
+                      transaction signature as proof of license.
+                    </li>
+                    <li>
+                      <strong>Team, Enterprise &amp; SaaS Hosting:</strong> Requires a written
+                      commercial agreement prior to deployment or redistribution.
+                    </li>
+                    <li>
+                      <strong>Attribution Integrity:</strong> Do not remove license gates, copyright
+                      notices, or contribution verification metadata.
+                    </li>
+                  </ul>
+                  <div class="license-actions">
+                    <a
+                      href="https://github.com/annoris"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="icon-btn"
+                    >
+                      GitHub Profile (@annoris)
+                    </a>
+                    <a
+                      href="https://github.com/annoris/trading-bauhaus-journal"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="icon-btn"
+                    >
+                      Repository
+                    </a>
+                  </div>
+                </article>
+
+                <article class="license-card" id="solana-license">
+                  <div class="panel-head">
+                    <h3>Official Solana Payment Wallet</h3>
+                    <span class="badge badge-long">SOL / USDC-SPL</span>
+                  </div>
+                  <p>
+                    Send verified SOL or USDC-SPL contributions directly to the official project
+                    wallet to unlock individual self-hosted deployment rights.
+                  </p>
+
+                  <div class="wallet-box">
+                    <code class="wallet-address" id="solana-wallet-text"
+                      >3HvUMCUSSHEdtA35UuD4J7mbgpTxJ7LgT2X7GfdzvBdm</code
+                    >
+                    <button
+                      type="button"
+                      class="copy-btn"
+                      id="copy-solana-btn"
+                      data-copy-text="3HvUMCUSSHEdtA35UuD4J7mbgpTxJ7LgT2X7GfdzvBdm"
+                    >
+                      Copy Wallet
+                    </button>
+                  </div>
+
+                  <div class="license-actions">
+                    <a
+                      href="solana:3HvUMCUSSHEdtA35UuD4J7mbgpTxJ7LgT2X7GfdzvBdm?label=Trading%20Bauhaus&amp;message=Commercial%20License"
+                      class="cta-btn"
+                    >
+                      Pay with Solana Pay
+                    </a>
+                    <a
+                      href="https://solscan.io/account/3HvUMCUSSHEdtA35UuD4J7mbgpTxJ7LgT2X7GfdzvBdm"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="icon-btn"
+                    >
+                      Verify on Solscan
+                    </a>
+                  </div>
+                </article>
+              </div>
+
+              <article class="license-card">
+                <div class="panel-head">
+                  <h3>GitHub Repository Policies</h3>
+                  <span class="panel-readout">Canonical governance &amp; legal documents</span>
+                </div>
+                <div class="policy-links-grid">
+                  <a
+                    href="https://github.com/annoris/trading-bauhaus-journal/blob/main/LICENSE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="policy-link-card"
+                  >
+                    <strong>LICENSE</strong>
+                    <span>Full LicenseRef-TradingBauhaus-Commercial-1.0 text</span>
+                  </a>
+                  <a
+                    href="https://github.com/annoris/trading-bauhaus-journal/blob/main/docs/commercial-license.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="policy-link-card"
+                  >
+                    <strong>Commercial License Guide</strong>
+                    <span>docs/commercial-license.md · Tiers &amp; verification</span>
+                  </a>
+                  <a
+                    href="https://github.com/annoris/trading-bauhaus-journal/blob/main/SECURITY.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="policy-link-card"
+                  >
+                    <strong>Security Policy</strong>
+                    <span>SECURITY.md · Vulnerability disclosure &amp; isolation</span>
+                  </a>
+                  <a
+                    href="https://github.com/annoris/trading-bauhaus-journal/blob/main/CONTRIBUTING.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="policy-link-card"
+                  >
+                    <strong>Contributing Guidelines</strong>
+                    <span>CONTRIBUTING.md · Pull requests &amp; code standards</span>
+                  </a>
+                  <a
+                    href="https://github.com/annoris/trading-bauhaus-journal/blob/main/CODE_OF_CONDUCT.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="policy-link-card"
+                  >
+                    <strong>Code of Conduct</strong>
+                    <span>CODE_OF_CONDUCT.md · Community participation standards</span>
+                  </a>
+                  <a
+                    href="https://github.com/annoris/trading-bauhaus-journal/blob/main/.github/FUNDING.yml"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="policy-link-card"
+                  >
+                    <strong>Funding &amp; Sponsorship</strong>
+                    <span>.github/FUNDING.yml · Official support channels</span>
+                  </a>
+                </div>
+              </article>
+            </section>
+          </div>
+        </main>
+
+        <!-- CLEAN FUTURISTIC FOOTER (1-to-1 match of apps/web futuristic-footer.tsx) -->
+        <footer class="app-footer">
+          <div class="app-footer-inner">
+            <div class="footer-brand-row">
+              <div>
+                <a href="#view=dashboard" class="brand-wordmark" data-view-target="dashboard">
+                  <span>TRADING</span>
+                  <strong>BAUHAUS<span class="brand-dot">•</span></strong>
+                </a>
+                <p class="footer-sub">
+                  Sovereign trade journal, performance analytics &amp; AI-assisted execution
+                  reviews.
+                </p>
+              </div>
+              <div class="footer-social-row">
+                <a
+                  href="https://github.com/annoris"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="icon-btn"
+                >
+                  @annoris
+                </a>
+                <a
+                  href="https://github.com/annoris/trading-bauhaus-journal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="icon-btn"
+                >
+                  Repository
+                </a>
+                <span class="footer-engine-status">
+                  <span class="status-dot" aria-hidden="true"></span>
+                  <span>Operational Engine</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="footer-wallet-row">
+              <div class="footer-wallet-pill">
+                <span class="footer-wallet-label">Solana License Wallet</span>
+                <button
+                  type="button"
+                  class="footer-wallet-copy"
+                  id="footer-copy-solana-btn"
+                  data-copy-text="3HvUMCUSSHEdtA35UuD4J7mbgpTxJ7LgT2X7GfdzvBdm"
+                  title="Copy Solana license wallet address"
+                >
+                  3HvUMCUSSHEdtA35UuD4J7mbgpTxJ7LgT2X7GfdzvBdm
+                </button>
+                <a href="#view=settings" class="footer-activate-btn" data-view-target="settings">
+                  Activate / Verify License
+                </a>
+                <a
+                  href="https://solscan.io/account/3HvUMCUSSHEdtA35UuD4J7mbgpTxJ7LgT2X7GfdzvBdm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer-solscan-link"
+                >
+                  Solscan ↗
+                </a>
+              </div>
+
+              <nav class="footer-policies" aria-label="GitHub policies">
+                <span class="footer-policies-kicker">GitHub Policies</span>
+                <a
+                  href="https://github.com/annoris/trading-bauhaus-journal/blob/main/LICENSE"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >License</a
+                >
+                <a
+                  href="https://github.com/annoris/trading-bauhaus-journal/blob/main/docs/commercial-license.md"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Commercial Terms</a
+                >
+                <a
+                  href="https://github.com/annoris/trading-bauhaus-journal/blob/main/SECURITY.md"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Security Policy</a
+                >
+                <a
+                  href="https://github.com/annoris/trading-bauhaus-journal/blob/main/CONTRIBUTING.md"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Contributing</a
+                >
+                <a
+                  href="https://github.com/annoris/trading-bauhaus-journal/blob/main/CODE_OF_CONDUCT.md"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Code of Conduct</a
+                >
+              </nav>
+            </div>
+
+            <div class="footer-bottom-row">
+              <span>© 2026 Trading Bauhaus. All rights reserved.</span>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- NATIVE TRADE DETAIL & CANDLE REPLAY DIALOG -->
+    <dialog class="trade-dialog" id="trade-modal" aria-labelledby="trade-modal-title">
+      <div class="trade-dialog-inner">
+        <div class="trade-dialog-head">
+          <div id="trade-modal-header">
+            <h3 id="trade-modal-title">Trade Detail</h3>
+          </div>
+          <button
+            type="button"
+            class="icon-btn"
+            id="trade-modal-close"
+            aria-label="Close trade replay modal"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+            <span>Close</span>
+          </button>
+        </div>
+
+        <div class="trade-dialog-body">
+          <div class="dialog-meta-grid" id="trade-modal-meta"></div>
+
+          <div class="replay-box">
+            <div class="panel-head">
+              <h3>OHLC Candlestick Replay</h3>
+              <span class="panel-readout">Synthetic 1m context · Entry &amp; Exit markers</span>
+            </div>
+            <div id="trade-replay-chart"></div>
+            <div class="replay-controls">
+              <button type="button" class="icon-btn" id="replay-restart-btn">Restart</button>
+              <button type="button" class="cta-btn" id="replay-play-btn">Play</button>
+              <button type="button" class="icon-btn" id="replay-step-btn">Step +1</button>
+              <label class="sr-only" for="replay-scrubber">Replay bar progress</label>
+              <input
+                type="range"
+                id="replay-scrubber"
+                class="replay-scrubber"
+                min="1"
+                max="24"
+                value="24"
+              />
+            </div>
+            <div class="replay-readout tabular-nums" id="replay-readout"></div>
+          </div>
+
+          <div class="dialog-meta-grid" id="trade-modal-excursions"></div>
+
+          <div class="dialog-split">
+            <div class="panel-card">
+              <div class="panel-head">
+                <h3>Playbook Rule Checklist</h3>
+              </div>
+              <ul class="rule-check-list" id="trade-modal-rules"></ul>
+            </div>
+
+            <div class="panel-card">
+              <div class="panel-head">
+                <h3>Structured Review Notes</h3>
+              </div>
+              <div id="trade-modal-notes"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- SOLANA LICENSE PURCHASE POP-UP DIALOG -->
+    <dialog
+      class="trade-dialog license-popup-dialog"
+      id="license-popup"
+      aria-labelledby="license-popup-title"
+    >
+      <div class="trade-dialog-inner">
+        <div class="trade-dialog-head">
+          <div class="license-popup-heading">
+            <span class="license-popup-eyebrow">COMMERCIAL LICENSE · SOLANA</span>
+            <h3 id="license-popup-title">Would you like to purchase a Trading Bauhaus license?</h3>
+          </div>
+          <button
+            type="button"
+            class="icon-btn"
+            id="license-popup-close"
+            aria-label="Close license pop-up"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="trade-dialog-body license-popup-body">
+          <p class="license-popup-copy">
+            A verified <strong>SOL</strong> or <strong>USDC-SPL</strong> transfer to our official
+            Solana wallet activates self-hosted commercial usage under
+            <code>LicenseRef-TradingBauhaus-Commercial-1.0</code>. Keep your transaction signature
+            as proof of license.
+          </p>
+
+          <div class="wallet-box">
+            <code class="wallet-address">3HvUMCUSSHEdtA35UuD4J7mbgpTxJ7LgT2X7GfdzvBdm</code>
+            <button
+              type="button"
+              class="copy-btn"
+              id="popup-copy-solana-btn"
+              data-copy-text="3HvUMCUSSHEdtA35UuD4J7mbgpTxJ7LgT2X7GfdzvBdm"
+            >
+              Copy Wallet
+            </button>
+          </div>
+
+          <div class="license-popup-actions">
+            <a
+              href="solana:3HvUMCUSSHEdtA35UuD4J7mbgpTxJ7LgT2X7GfdzvBdm?label=Trading%20Bauhaus&amp;message=Commercial%20License"
+              class="cta-btn"
+            >
+              Pay with Solana Pay
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a
+              href="https://solscan.io/account/3HvUMCUSSHEdtA35UuD4J7mbgpTxJ7LgT2X7GfdzvBdm"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="icon-btn"
+            >
+              Verify on Solscan
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div class="license-popup-footer">
+            <button type="button" class="icon-btn" id="popup-open-license-view">
+              License &amp; Policies
+            </button>
+            <button type="button" class="ghost-reset-btn" id="license-popup-later">
+              Maybe later
+            </button>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <script type="module" src="assets/js/app.js?v=1.3.0"></script>
+  </body>
+</html>

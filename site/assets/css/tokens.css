@@ -1,0 +1,117 @@
+/* Trading Bauhaus Design Tokens
+ * Dark-first trading terminal palette aligned with apps/web/src/app/globals.css.
+ * P&L green/red only reinforces signed values, zero baselines, and shape cues.
+ */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #090b0b;
+  --bg-elevated: #0d1010;
+  --card: #101313;
+  --popover: #151919;
+  --border: #29302e;
+  --border-subtle: #1c2220;
+  --fg: #f4f4f4;
+  --muted: #a6afaa;
+  --dim: #79857e;
+
+  --brand: #35d074;
+  --brand-fg: #04150b;
+  --brand-hover: #4be086;
+  --brand-soft: rgb(53 208 116 / 12%);
+  --brand-ring: rgb(53 208 116 / 28%);
+
+  --profit: #35d074;
+  --profit-fill: #28b964;
+  --profit-soft: rgb(53 208 116 / 12%);
+  --loss: #f87171;
+  --loss-soft: rgb(248 113 113 / 12%);
+  --warning: #facc15;
+  --warning-soft: rgb(250 204 21 / 12%);
+  --warning-border: rgb(250 204 21 / 34%);
+
+  --gridline: #232c28;
+  --baseline: #323c38;
+  --neutral-mid: #272b29;
+
+  --series-1: #35d074;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --series-4: #c98500;
+  --series-5: #9085e9;
+
+  --shadow-sm: 0 2px 10px rgb(0 0 0 / 28%);
+  --shadow-md: 0 14px 36px rgb(0 0 0 / 45%);
+  --shadow-lg: 0 32px 72px rgb(0 0 0 / 60%);
+  --header-bg: rgb(9 11 11 / 86%);
+  --code-bg: #070909;
+  --chip-bg: #161b1a;
+  --chip-hover: #1d2422;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: #f9f9f7;
+  --bg-elevated: #f2f2ee;
+  --card: #fcfcfb;
+  --popover: #fcfcfb;
+  --border: #e1e0d9;
+  --border-subtle: #eae9e3;
+  --fg: #0b0b0b;
+  --muted: #52514e;
+  --dim: #686760;
+
+  --brand: #15803d;
+  --brand-fg: #fafafa;
+  --brand-hover: #166534;
+  --brand-soft: rgb(21 128 61 / 10%);
+  --brand-ring: rgb(21 128 61 / 24%);
+
+  --profit: #006300;
+  --profit-fill: #28b964;
+  --profit-soft: rgb(0 99 0 / 10%);
+  --loss: #d03b3b;
+  --loss-soft: rgb(208 59 59 / 10%);
+  --warning: #a16207;
+  --warning-soft: rgb(250 204 21 / 20%);
+  --warning-border: rgb(161 98 7 / 32%);
+
+  --gridline: #e1e0d9;
+  --baseline: #c3c2b7;
+  --neutral-mid: #f0efec;
+
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --series-5: #4a3aa7;
+
+  --shadow-sm: 0 2px 8px rgb(11 11 11 / 5%);
+  --shadow-md: 0 12px 30px rgb(11 11 11 / 8%);
+  --shadow-lg: 0 24px 56px rgb(11 11 11 / 12%);
+  --header-bg: rgb(249 249 247 / 88%);
+  --code-bg: #f1f0eb;
+  --chip-bg: #f1f0eb;
+  --chip-hover: #e7e5de;
+}
+
+:root {
+  --font-sans:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono:
+    "JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  --container-max: 1360px;
+  --header-height: 68px;
+  --transition-fast: 150ms cubic-bezier(0.2, 0.75, 0.25, 1);
+  --transition-med: 240ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}

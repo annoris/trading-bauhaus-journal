@@ -1,0 +1,48 @@
+TRADING BAUHAUS — SOURCE-AVAILABLE COMMERCIAL & CONTRIBUTION-GATED LICENSE
+==========================================================================
+SPDX-License-Identifier: LicenseRef-TradingBauhaus-Commercial-1.0
+Copyright (c) 2026 Trading Bauhaus (Annoris). All rights reserved.
+
+Exclusive Original Ownership Notice:
+Trading Bauhaus is an original software work created from scratch and owned
+100% exclusively by Trading Bauhaus (Annoris). All intellectual property,
+architecture, user interface design, analytics engines, and source code are
+proprietary to the owner.
+
+Official Contribution & Licensing Solana (SOL / SPL) Wallet:
+3HvUMCUSSHEdtA35UuD4J7mbgpTxJ7LgT2X7GfdzvBdm
+
+1. GRANT & CONTRIBUTION / COMMERCIAL REQUIREMENT
+Trading Bauhaus is source-available and all rights are reserved exclusively to
+its creator and owner. Any installation, self-hosted deployment, production use,
+copying, modification, or commercial utilization of Trading Bauhaus requires
+EITHER:
+  (a) A verified contribution to the official project Solana wallet
+      (`3HvUMCUSSHEdtA35UuD4J7mbgpTxJ7LgT2X7GfdzvBdm`) in accordance with the
+      published contribution guidelines in `docs/commercial-license.md`, OR
+  (b) An executed written commercial license agreement with the owner.
+
+2. RESTRICTIONS & ANTI-CIRCUMVENTION
+Without a valid written commercial license agreement from the owner, you may NOT:
+  (a) Redistribute, sublicense, resell, lease, or publicly mirror the software
+      or modified derivatives as a competing product or managed service (SaaS);
+  (b) Remove, alter, disable, or bypass any payment gate, contribution verification
+      gate, wallet attribution, cryptographic license check, or copyright notice;
+  (c) Use the Trading Bauhaus name, branding, or visual assets to endorse or
+      promote unauthorized forks or commercial offerings.
+
+3. ENFORCEMENT & TERMINATION
+Any breach of Section 1 or Section 2 automatically and immediately terminates
+any rights granted under this license. Mere possession of the source code or
+access to the repository does not grant a free commercial or evaluation license.
+See `docs/commercial-license.md` for full commercial licensing terms and
+contribution verification instructions.
+
+4. WARRANTY DISCLAIMER & LIMITATION OF LIABILITY
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHOR OR COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
